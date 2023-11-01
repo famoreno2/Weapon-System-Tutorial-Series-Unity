@@ -256,6 +256,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnRaycastHit:
+    m_PersistentCalls:
+      m_Calls: []
   <LayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 512

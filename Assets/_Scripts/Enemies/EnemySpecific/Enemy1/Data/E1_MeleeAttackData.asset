@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763ac820ee732cf4bbbd226c2ac6513c, type: 3}
   m_Name: E1_MeleeAttackData
   m_EditorClassIdentifier: 
-  attackRadius: 0.75
-  attackDamage: 10
+  attackRadius: 2
+  attackDamage: 30
   knockbackAngle: {x: 1, y: 1}
-  knockbackStrength: 10
+  knockbackStrength: 20
   PoiseDamage: 100
   whatIsPlayer:
     serializedVersion: 2

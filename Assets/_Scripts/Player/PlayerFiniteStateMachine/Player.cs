@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
 
+    public PlayerUseItemStates UseItemState { get; private set; }
+
     public PlayerStunState PlayerStunState { get; private set; }
 
     [SerializeField]
@@ -88,6 +90,8 @@ public class Player : MonoBehaviour
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", primaryWeapon, CombatInputs.primary);
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", secondaryWeapon, CombatInputs.secondary);
         PlayerStunState = new PlayerStunState(this, StateMachine, playerData, "stun");
+        UseItemState = new PlayerUseItemStates(this, StateMachine, playerData, "useItem", InputHandler);
+
     }
 
     private void Start()

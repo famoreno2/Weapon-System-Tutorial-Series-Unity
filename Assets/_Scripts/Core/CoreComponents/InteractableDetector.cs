@@ -68,6 +68,8 @@ namespace Bardent.CoreSystem
             if (other.IsInteractable(out var interactable))
             {
                 interactables.Add(interactable);
+
+
             }
         }
 

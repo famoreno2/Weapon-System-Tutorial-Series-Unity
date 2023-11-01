@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using Bardent;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -10,6 +12,22 @@ public class PlayerInputHandler : MonoBehaviour
 
     private PlayerInput playerInput;
     private Camera cam;
+
+    public BoxCollider2D perfect;
+    public BoxCollider2D enabler;
+   // public BoxCollider2D great2;
+    public BoxCollider2D miss;
+  //  public BoxCollider2D miss2;
+    public BoxCollider2D beat;
+
+    public HealthBar healthBar;
+
+
+
+
+    public Action OnPrimaryAttackInputAction = delegate { };
+    public Action OnSecondaryAttackInputAction = delegate { };
+
 
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawDashDirectionInput { get; private set; }
@@ -44,6 +62,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
+
+       
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)
@@ -65,19 +85,56 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInputs[(int)CombatInputs.primary] = true;
+
+            perfect.enabled = true;
+            enabler.enabled = true;
+            //  great2.enabled = true;
+            // miss.enabled = true;
+            // miss2.enabled = true;
+            OnPrimaryAttackInputAction?.Invoke();
+
+
         }
 
         if (context.canceled)
         {
             AttackInputs[(int)CombatInputs.primary] = false;
+            perfect.enabled = false;
+            enabler.enabled = false;
+          //  great2.enabled = false;
+          //  miss.enabled = false;
+           // miss2.enabled = false;
+            
+        }
+
+
+      
+
+    }
+
+    public void UseItemInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            healthBar.currentHealth += 50;
+            healthBar.itemText.text = "Healing Item Used";
+            healthBar.healingItem--;
+
+            if (healthBar.healingItem <= 0)
+            {
+                healthBar.itemText.text = "No Healing Items Left";
+            }
         }
     }
+
+
 
     public void OnSecondaryAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             AttackInputs[(int)CombatInputs.secondary] = true;
+            OnPrimaryAttackInputAction?.Invoke();
         }
 
         if (context.canceled)
@@ -173,6 +230,8 @@ public class PlayerInputHandler : MonoBehaviour
             DashInput = false;
         }
     }
+
+   
 }
 
 public enum CombatInputs

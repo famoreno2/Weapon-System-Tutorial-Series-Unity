@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using Bardent.Weapons;
 using UnityEngine;
@@ -14,14 +14,7 @@ public class PlayerAttackState : PlayerAbilityState
 
     private bool checkFlip;
 
-    public PlayerAttackState(
-        Player player,
-        PlayerStateMachine stateMachine,
-        PlayerData playerData,
-        string animBoolName,
-        Weapon weapon,
-        CombatInputs input
-    ) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerAttackState(Player player,PlayerStateMachine stateMachine,PlayerData playerData,string animBoolName,Weapon weapon,CombatInputs input) : base(player, stateMachine, playerData, animBoolName)
     {
         this.weapon = weapon;
 

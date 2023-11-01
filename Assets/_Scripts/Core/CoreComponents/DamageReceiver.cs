@@ -17,24 +17,43 @@ namespace Bardent.CoreSystem
 
         private Stats stats;
         private ParticleManager particleManager;
+        public TranceBar tranceBarScript;
 
 
         public void Damage(DamageData data)
         {
-            print($"Damage Amount Before Modifiers: {data.Amount}");
-
-            // We must apply the modifiers before we do anything else with data. If there are no modifiers currently active, data will remain the same
-            data = Modifiers.ApplyAllModifiers(data);
-
-            print($"Damage Amount After Modifiers: {data.Amount}");
-
-            if (data.Amount <= 0f)
+            if (tranceBarScript != null)
             {
-                return;
-            }
+               // int tranceLevel = tranceBarScript.tranceLevel;
 
-            stats.Health.Decrease(data.Amount);
-            particleManager.StartWithRandomRotation(damageParticles);
+                int damageIncrease = 0;
+                //if (tranceBarScript.tranceLevel == 2)
+               // {
+                //    damageIncrease = 50;
+               // }
+               // else if (tranceLevel == 3)
+               // {
+                 //   damageIncrease = 100;
+               // }
+
+                // Create a new instance of DamageData with the modified amount.
+                DamageData modifiedData = new DamageData(data.Amount + damageIncrease, data.Source); // Pass the required 'source' parameter.
+
+                print($"Damage Amount Before Modifiers: {modifiedData.Amount}");
+
+                // Apply modifiers to the modified data.
+                modifiedData = Modifiers.ApplyAllModifiers(modifiedData);
+
+                print($"Damage Amount After Modifiers: {modifiedData.Amount}");
+
+                if (modifiedData.Amount <= 0f)
+                {
+                    return;
+                }
+
+                stats.Health.Decrease(data.Amount);
+                particleManager.StartWithRandomRotation(damageParticles);
+            }
         }
 
         protected override void Awake()

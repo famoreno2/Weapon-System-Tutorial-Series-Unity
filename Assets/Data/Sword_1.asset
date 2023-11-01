@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 3124257199506325504
   - rid: 2516071312619208704
   - rid: 2516071382426845184
+  - rid: 8108031163332558848
   references:
     version: 2
     RefIds:
@@ -37,13 +38,16 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 10
+          <Strength>k__BackingField: 0.2
         - name: Attack 2
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 10
+          <Strength>k__BackingField: 0.2
         - name: Attack 3
           <Angle>k__BackingField: {x: 1, y: 3}
-          <Strength>k__BackingField: 20
+          <Strength>k__BackingField: 1
+        - name: Attack 4
+          <Angle>k__BackingField: {x: 1, y: 3}
+          <Strength>k__BackingField: 1
     - rid: 2516071382426845184
       type: {class: PoiseDamageData, ns: Bardent.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -55,6 +59,8 @@ MonoBehaviour:
         - name: Attack 2
           <Amount>k__BackingField: 30
         - name: Attack 3
+          <Amount>k__BackingField: 30
+        - name: Attack 4
           <Amount>k__BackingField: 30
     - rid: 3124257199506325504
       type: {class: DamageOnHitBoxActionData, ns: Bardent.Weapons.Components, asm: Assembly-CSharp}
@@ -68,6 +74,8 @@ MonoBehaviour:
           <Amount>k__BackingField: 10
         - name: Attack 3
           <Amount>k__BackingField: 15
+        - name: Attack 4
+          <Amount>k__BackingField: 50
     - rid: 4372344435206258688
       type: {class: MovementData, ns: Bardent.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -75,14 +83,14 @@ MonoBehaviour:
         repeatData: 0
         attackData:
         - name: Attack 1
-          <Direction>k__BackingField: {x: 1, y: 0}
-          <Velocity>k__BackingField: 3
+          <Direction>k__BackingField: {x: 0, y: -50}
+          <Velocity>k__BackingField: 25
         - name: Attack 2
           <Direction>k__BackingField: {x: 1, y: 0}
-          <Velocity>k__BackingField: 4
+          <Velocity>k__BackingField: 0
         - name: Attack 3
-          <Direction>k__BackingField: {x: 1, y: 5}
-          <Velocity>k__BackingField: 5
+          <Direction>k__BackingField: {x: 0, y: 90.18}
+          <Velocity>k__BackingField: 20
     - rid: 4372345045472247809
       type: {class: ActionHitBoxData, ns: Bardent.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -149,3 +157,7 @@ MonoBehaviour:
             - {fileID: -312529561, guid: 3179c16b297295440b9749aff89377e2, type: 3}
             - {fileID: -1032906865, guid: 3179c16b297295440b9749aff89377e2, type: 3}
             - {fileID: 621078435, guid: 3179c16b297295440b9749aff89377e2, type: 3}
+    - rid: 8108031163332558848
+      type: {class: InputHoldData, ns: Bardent.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: InputHoldData

@@ -7,14 +7,16 @@ public class PlayerData : ScriptableObject
 {
     [Header("Move State")]
     public float movementVelocity = 10f;
+    public float tranceMovement = 30f;
+    public float tranceMovement2 = 40f;
 
     [Header("Jump State")]
     public float jumpVelocity = 15f;
     public int amountOfJumps = 1;
 
     [Header("Wall Jump State")]
-    public float wallJumpVelocity = 20;
-    public float wallJumpTime = 0.4f;
+    public float wallJumpVelocity = 5;
+    public float wallJumpTime = 0.2f;
     public Vector2 wallJumpAngle = new Vector2(1, 2);
 
     [Header("In Air State")]
@@ -48,4 +50,9 @@ public class PlayerData : ScriptableObject
     
     [Header("Stun State")] 
     public float stunTime = 2f;
+
+    [Header("UseI tem State")]
+    public float itemTime = 2f;
+
+    public PlayerData playerData;
 }

@@ -15,6 +15,8 @@ namespace Bardent.Weapons
         [field: SerializeField] public RuntimeAnimatorController AnimatorController { get; private set; }
         [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
+      //  [field: SerializeField] public GameObject 
+
         [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
         public T GetData<T>()

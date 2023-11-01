@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Bardent.CoreSystem
 {
@@ -14,6 +16,8 @@ namespace Bardent.CoreSystem
 
         private Vector2 workspace;
 
+        private TranceBarTest tranceBarScript;
+
         protected override void Awake()
         {
             base.Awake();
@@ -22,11 +26,26 @@ namespace Bardent.CoreSystem
 
             FacingDirection = 1;
             CanSetVelocity = true;
+
+
+            GameObject barObject = GameObject.Find("Cameras/Main Camera/TranceBar/Bar");
+            if (barObject != null)
+            {
+               
+                tranceBarScript = barObject.GetComponent<TranceBarTest>();
+            }
+
         }
 
         public override void LogicUpdate()
         {
             CurrentVelocity = RB.velocity;
+            if (tranceBarScript != null && tranceBarScript.tranceLevel > 0)
+            {
+              
+               // CurrentVelocity ;
+            }
+
         }
 
         #region Set Functions
@@ -40,6 +59,8 @@ namespace Bardent.CoreSystem
         public void SetVelocity(float velocity, Vector2 angle, int direction)
         {
             angle.Normalize();
+
+           
             workspace.Set(angle.x * velocity * direction, angle.y * velocity);
             SetFinalVelocity();
         }
@@ -58,6 +79,8 @@ namespace Bardent.CoreSystem
 
         public void SetVelocityY(float velocity)
         {
+
+           
             workspace.Set(CurrentVelocity.x, velocity);
             SetFinalVelocity();
         }

@@ -22,6 +22,7 @@ namespace Bardent.CoreSystem
             }
         
             core.transform.parent.gameObject.SetActive(false);
+           
         }
 
         private void OnEnable()
@@ -33,5 +34,7 @@ namespace Bardent.CoreSystem
         {
             Stats.Health.OnCurrentValueZero -= Die;
         }
+
+       
     }
 }
